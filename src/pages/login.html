@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 300px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    .login-container input:focus {
+      border-color: #2575fc;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #2575fc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-container button:hover {
+      background: #1d5ed9;
+    }
+
+    .message {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Enter username" />
+    <button onclick="login()">Login</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    async function login() {
+      const username = document.getElementById("username").value.trim();
+      const messageEl = document.getElementById("message");
+
+      if (!username) {
+        messageEl.textContent = "Please enter a username.";
+        messageEl.style.color = "red";
+        return;
+      }
+
+      sessionStorage.setItem("username", username);
+
+      window.location.href = "http://127.0.0.1:8000/app/login/" + username;
+    }
+  </script>
+</body>
+</html>
