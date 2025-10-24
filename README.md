@@ -1,4 +1,4 @@
-# t5-fastapi-openai-sdk
+# chat-app-fastapi
 
 Minimal FastAPI chat service using an `agents` SDK with a Gemini-compatible Chat Completions API. Serves simple HTML pages and stores chat history in SQLite.
 
